@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkbox Odevi</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h2>İlgili Olduğunuz Bölümleri Seçin</h2>
+      
+      <div id="checkbox">
+        <label> <input type="checkbox" name="Seyehat" /> Seyehat </label><br />
+        <label> <input type="checkbox" name="Yemek" /> Yemek </label><br />
+        <label> <input type="checkbox" name="Spor" /> Spor </label><br />
+        <label> <input type="checkbox" name="Sinema" /> Sinema </label><br />
+        <label> <input type="checkbox" name="Fitness" /> Fitness </label><br />
+        <br>
+
+        <button type="button" onclick="kaydet()">Kaydet</button>
+        
+      </div>
+        
+      <div id="sonuc"></div>
+
+      <script>
+        function kaydet() {
+          var hobi = document.getElementById("checkbox");
+          var checkboxlar = hobi.querySelectorAll('input[type="checkbox"]');
+          var sectiginizHobiler = [];
+
+    
+          
+          checkboxlar.forEach(function (checkbox) {
+            if (checkbox.checked) {
+              sectiginizHobiler.push(checkbox.name);
+            }
+          });
+          var sonucHobi = document.getElementById("sonuc");
+          sonucHobi.innerHTML = " " + sectiginizHobiler.join(", ");
+        }
+      </script>
+    </div>
+  </body>
+</html>
